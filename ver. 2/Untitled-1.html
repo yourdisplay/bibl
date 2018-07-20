@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--link rel="stylesheet" href="styles/primer.css"-->
+<!--link rel="stylesheet" href="styles/github.css"-->
+<!--link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"-->
+<!--link rel="stylesheet" href="styles/main.css"-->
+</head>
+<body>
+<header>
+<h1 class="title">Копировалка</h1>
+</header>
+
+
+<div>
+<input id="foo" type="text" value="Это нужно скопировать">
+<button class="btn" type="button" data-clipboard-demo data-clipboard-target="#foo">
+<img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+</button>
+</div>
+
+
+
+
+<div>
+<textarea id="bar" cols="62" rows="5" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">Это нужно скопировать</textarea>
+</div>
+<div class="form-actions">
+<button class="btn" type="button" data-clipboard-demo data-clipboard-action="cut" data-clipboard-target="#bar">
+Cut to clipboard
+</button>
+</div>
+
+
+
+
+
+
+<!--script src="scripts/highlight.pack.min.js"></script>-->
+<script src="clipboard.js-master/dist/clipboard.min.js"></script>
+<script src="scripts/demos.js"></script>
+<!--script src="scripts/snippets.js"></script>-->
+<!--script src="scripts/tooltips.js"></script-->
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html> 
+<html lang="ru"> 
+<meta charset="utf-8"> 
+    <script src="scripts/highlight.pack.min.js"></script>
+    <script src="clipboard.js-master/dist/clipboard.min.js"></script>
+    <script src="scripts/demos.js"></script>
+    <script src="scripts/snippets.js"></script>
+    <script src="scripts/tooltips.js"></script>
+  
+    <head>
+    <h1></h1>
+    </head>
+    <body>
+        <div id="example-target" class="example">
+            <div class="input-group">
+                <input id="foo" type="text" value="https://github.com/zenorocha/clipboard.js.git">
+                    <span class="input-group-button">
+                        <button class="btn" type="button" data-clipboard-demo data-clipboard-target="#foo">
+                            <img class="clippy" src="assets/images/clippy.svg" width="13" alt="Copy to clipboard">
+                        </button>
+                    </span>
+            </div>
+        </div>
+
+
+        <input id="post-shortlink" value="То что надо скопировать">
+        <button class="button" id="copy-button" data-clipboard-target="#post-shortlink">Скопировать</button>
+        <br /><br />
+                <div id="example-target" class="example">
+                    <div class="input-group">
+                        <input id="foo" type="text" value="https://github.com/zenorocha/clipboard.js.git">
+                        <span class="input-group-button">
+                            <button class="btn" type="button" data-clipboard-demo data-clipboard-target="#foo">
+                                <img class="clippy" src="images/clippy.svg" width="13" alt="Copy to clipboard">
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+    <br /><br />
+    <textarea id="bar" cols="62" rows="5" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">То что надо скопировать</textarea>
+    <button class="btn" type="button" data-clipboard-demo data-clipboard-action="cut" data-clipboard-target="#bar">
+    Cut to clipboard
+    </button>
+
+
+    </body>  
+</html>

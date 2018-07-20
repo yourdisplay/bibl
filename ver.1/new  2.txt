@@ -1,0 +1,117 @@
+<h5>(в соответсвии с требованиями ГОСТ Р 7.0.11-2011 "Диссертация и автореферат диссертации. Структура и правила оформления")</h5><br />
+<p><h3>Выберите тип источника:</h3></p>
+<ul>
+<li><a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('book'); return false;">Книга</a><br></li>
+<li><a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('artj'); return false;">Статья из журнала</a><br></li>
+<li><a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('artb'); return false;">Статья из сборника</a><br></li>
+<li><a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('diss'); return false;">Диссертация</a><br></li>
+<li><a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('auto'); return false;">Автореферат</a><br></li>
+<li><a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('law'); return false;">Закон, нормативный акт</a><br></li>
+<li><a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('web'); return false;">Интернет-ресурс</a><br></li>
+</ul>
+				<div class="bibl" id="book" style="display: none;">
+<h3>Книга</h3>
+<table>
+<form name="book">
+<tr></tr>
+<tr>
+<td><b>ФИО автора</b></td>
+<td><input id="book_authors" size="30" type="text" value="" />
+</tr>
+<tr>
+<td></td>
+<td><details><summary>Добавить еще авторов</summary>
+<p><input id="book_authors1" size="80" type="text" value="" /></p></details></td>
+</tr>
+<tr>
+<td><b>Заглавие</b></td>
+<td><input id="book_book" size="80" type="text" value="" />
+</td>
+</tr>
+<tr>
+<td><b>Сведения, относящиеся к заглавию</b></td>
+<td><input id="book_sved" size="80" type="text" value="" />
+</td>
+</tr>
+<tr>
+<td><b>Номер издания (при наличии)</b></td>
+<td><input id="book_num" size="30" type="text" value="" />
+</td>
+</tr>
+<tr>
+<td><b>Город издания</b></td>
+<td><input id="book_city" size="30" type="text" value="" />
+</td>
+</tr>
+<tr>
+<td><b>Издательство</b></td>
+<td><input id="book_org" size="30" type="text" value="" />
+</td>
+</tr>
+<tr>
+</td>
+<td><b>Год издания</b></td>
+<td><input id="book_year" size="10" type="text" value="" />
+</td>
+</tr>
+<tr>
+<td><b>Общее число страниц в книге</b></td>
+<td><input id="book_pages" size="10" type="text" value="" />
+</td>
+</tr>
+</form>
+</table>
+<h3>Результат:</h3>
+<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_book">
+</div>
+</div>
+<div class="bibl" id="artj" style="display: none;">
+					<h3>Статья из журнала</h3>
+					<table border="0" width="100%">
+					<form name="artj">
+<tr></tr>
+<tr>
+							<td><b>Фамилии и инициалы авторов (через запятую)</b></td>
+							<td>
+								<input type="text" id="artj_authors" value="" size="80" onkeyup="get_artj(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Заголовок статьи</b></td>
+							<td>
+								<input type="text" id="artj_header1" value="" size="80" onkeyup="get_artj(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название журнала</b></td>
+							<td>
+								<input type="text" id="artj_journal" value="" size="50" onkeyup="get_artj(); return(false);"><br>
+								
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год</b></td>
+							<td>
+								<input type="text" id="artj_year" value="" size="10" onkeyup="get_artj(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Номер журнала</b></td>
+							<td>
+								<input type="text" id="artj_issue" value="" size="10" onkeyup="get_artj(); return(false);"><br>				
+							</td>
+						</tr>
+						<tr>
+							<td><b>Страницы</b></td>
+							<td>
+								<input type="text" id="artj_pages" value="" size="10" onkeyup="get_artj(); return(false);"><br>
+								
+							</td>
+						</tr>			
+					</form>
+					</table>
+					<h3>Результат:</h3>
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_artj"></div>
+				</div> <!--end-->
+<p><script charset="utf-8" type="text/javascript" src="/wp-content/themes/nilksa/js/func.js"></script></p>
+

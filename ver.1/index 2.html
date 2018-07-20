@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<script type="text/javascript">
+function showStuff(id) {
+	var divid = document.getElementById(id);
+	var divs = document.getElementsByClassName("bibl");
+	for(var i=0;i<divs.length;i++) {
+		divs[i].style.display = "none";
+	}
+	divid.style.display = "block";
+}
+
+function get_artj() {
+	var authorname = document.getElementById('artj_authorname').value;
+	if (authorname.slice(-1) != '.') {
+		authorname = authorname.charAt(0) + '.';
+	}
+	var authorsname = document.getElementById('artj_authorsname').value;
+	if (authorsname.slice(-1) != '.') {
+		authorsname = authorsname.charAt(0) + '.';
+	}
+	var author = document.getElementById('artj_author').value;
+	var authors = document.getElementById('artj_authors').value;
+	if (authors.search(/./i) != -1) {
+		authors = ', ' + authors;
+	}
+	var header1 = document.getElementById('artj_name').value;
+	var journal = document.getElementById('artj_bname').value;
+	var year = document.getElementById('artj_year').value;
+	var num = document.getElementById('artj_num').value;
+	var pages = document.getElementById('artj_pages').value;
+	var bibl = author + ' ' + authorname + ' ' + authorsname + authors + ' ' + header1 + ' // ' + journal + '. ' + year + '. № ' + num + '. C. ' + pages + '.';
+	document.getElementById('txt_artj').innerHTML = bibl;
+}
+
+function get_artb() {
+	var authorname = document.getElementById('artb_authorname').value;
+	if (authorname.slice(-1) != '.') {
+		authorname = authorname.charAt(0) + '.';
+	}
+	var authorsname = document.getElementById('artb_authorsname').value;
+	if (authorsname.slice(-1) != '.') {
+		authorsname = authorsname.charAt(0) + '.';
+	}
+	var author = document.getElementById('artb_author').value;
+	var authors = document.getElementById('artb_authors').value;
+	if (authors.search(/./i) != -1) {
+		authors = ', ' + authors;
+	}
+	var header1 = document.getElementById('artb_name').value;
+	var book = document.getElementById('artb_bname').value;
+	var sved = document.getElementById('artb_sved').value;
+	if (sved.search(/./i) != -1) {
+		sved = ' : ' + sved;
+	}
+	var city = document.getElementById('artb_city').value;
+	if ((city == 'Москва') || (city == 'М')) {
+		city = 'М.';
+	}
+	if ((city == 'Санкт-Петербург') || (city == 'СПб')) {
+		city = 'СПб.';
+	}	
+	var year = document.getElementById('artb_year').value;
+	var pages = document.getElementById('artb_pages').value;
+	var bibl = author + ' ' + authorname + ' ' + authorsname + authors + ' ' + header1 + ' // ' + book + sved + '. ' + city + ', ' + year + '. C. ' + pages + '.';
+	document.getElementById('txt_artb').innerHTML = bibl;
+}
+
+function get_book() {
+var authorname = document.getElementById('book_authorname').value;
+	if (authorname.slice(-1) != '.') {
+		authorname = authorname.charAt(0) + '.';
+	}
+	var authorsname = document.getElementById('book_authorsname').value;
+	if (authorsname.slice(-1) != '.') {
+		authorsname = authorsname.charAt(0) + '.';
+	}
+	var author = document.getElementById('book_author').value;
+	var authors = document.getElementById('book_authors').value;
+	if (authors.search(/./i) != -1) {
+		authors = ', ' + authors;
+	}
+	var book = document.getElementById('book_book').value;
+	var sved = document.getElementById('book_sved').value;
+	if (sved.search(/./i) != -1) {
+		sved = ' : ' + sved;
+	}
+	var city = document.getElementById('book_city').value;
+	if ((city == 'Москва') || (city == 'М')) {
+		city = 'М.';
+	}
+	if ((city == 'Санкт-Петербург') || (city == 'СПб')) {
+		city = 'СПб.';
+	}	
+	var org = document.getElementById('book_org').value;
+	var year = document.getElementById('book_year').value;
+	var pages = document.getElementById('book_pages').value;
+	var bibl = author + ' ' + authorname + ' ' + authorsname + authors + ' ' + book + sved + '. ' + city + ': ' + org + ', ' + year + '. ' + pages + ' с.';
+	document.getElementById('txt_book').innerHTML = bibl;
+}
+
+window.onclick = function onclickRadio() {
+	var nameRadio = document.getElementsByName('nameRadio');
+	var nameaRadio = document.getElementsByName('nameaRadio');
+	for (var i = 0; i < nameRadio.length; i++) {
+   if (nameRadio[i].type === 'radio' && nameRadio[i].checked) {
+        diss_sved = nameRadio[i].value;
+	}
+}
+document.getElementById('diss_sved').innerHTML = diss_sved;
+for (var i = 0; i < nameaRadio.length; i++) {
+   if (nameaRadio[i].type === 'radio' && nameaRadio[i].checked) {
+        auto_sved = nameaRadio[i].value;
+	}
+}
+document.getElementById('auto_sved').innerHTML = auto_sved;
+ }
+
+function get_diss() {
+	var authorname = document.getElementById('diss_authorname').value;
+	if (authorname.slice(-1) != '.') {
+		authorname1 = authorname.charAt(0) + '.';
+	}
+	var authorsname = document.getElementById('diss_authorsname').value;
+	if (authorsname.slice(-1) != '.') {
+		authorsname1 = authorsname.charAt(0) + '.';
+	}
+	var author = document.getElementById('diss_author').value;
+	var header = document.getElementById('diss_name').value;
+	//var sved = document.getElementById('diss_sved').value;
+	var city = document.getElementById('diss_city').value;
+	if ((city == 'Москва') || (city == 'М')) {
+		city = 'М.';
+	}
+	if ((city == 'Санкт-Петербург') || (city == 'СПб')) {
+		city = 'СПб.';
+	}
+	var since = document.getElementById('diss_since').value;
+	if ((since == 'техническ') || (since == 'техническая') || (since == 'технических') || (since == 'техн')) {
+		since = 'техн.';
+	}
+	if ((since == 'эконом') || (since == 'экономическая') || (since == 'экономических') || (since == 'экон')) {
+		since = 'экон.';
+	}
+	if ((since == 'физико') || (since == 'физико-математическая') || (since == 'физико-математических') || (since == 'физ') || (since == 'физ.-мат')) {
+		since = 'физ.-мат.';
+	}
+	if ((since == 'юрид') || (since == 'юридическая') || (since == 'юридических') || (since == 'юрид')) {
+		since = 'юрид.';
+	}
+	var shifr = document.getElementById('diss_shifr').value;
+	var year = document.getElementById('diss_year').value;
+	var pages = document.getElementById('diss_pages').value;
+	var bibl = author + ' ' + authorname1 + ' ' + authorsname1 + ' ' + header + ' : дисс. ... ' + diss_sved + since + ' наук. ' + city + ', ' + year + '. ' + pages + ' c.';
+	document.getElementById('txt_diss').innerHTML = bibl;
+}
+
+function get_auto() {
+	var authorname = document.getElementById('auto_authorname').value;
+	if (authorname.slice(-1) != '.') {
+		authorname1 = authorname.charAt(0) + '.';
+	}
+	var authorsname = document.getElementById('auto_authorsname').value;
+	if (authorsname.slice(-1) != '.') {
+		authorsname1 = authorsname.charAt(0) + '.';
+	}
+	var author = document.getElementById('auto_author').value;
+	var header = document.getElementById('auto_name').value;
+	//var sved = document.getElementById('diss_sved').value;
+	var city = document.getElementById('auto_city').value;
+	if ((city == 'Москва') || (city == 'М')) {
+		city = 'М.';
+	}
+	if ((city == 'Санкт-Петербург') || (city == 'СПб')) {
+		city = 'СПб.';
+	}
+	var since = document.getElementById('auto_since').value;
+	if ((since == 'техническ') || (since == 'техническая') || (since == 'технических') || (since == 'техн')) {
+		since = 'техн.';
+	}
+	if ((since == 'эконом') || (since == 'экономическая') || (since == 'экономических') || (since == 'экон')) {
+		since = 'экон.';
+	}
+	if ((since == 'физико') || (since == 'физико-математическая') || (since == 'физико-математических') || (since == 'физ') || (since == 'физ.-мат')) {
+		since = 'физ.-мат.';
+	}
+	if ((since == 'юрид') || (since == 'юридическая') || (since == 'юридических') || (since == 'юрид')) {
+		since = 'юрид.';
+	}
+	var shifr = document.getElementById('auto_shifr').value;
+	var year = document.getElementById('auto_year').value;
+	var pages = document.getElementById('auto_pages').value;
+	var bibl = author + ' ' + authorname1 + ' ' + authorsname1 + ' ' + header + ' : авторев. дисс. ... ' + auto_sved + since + ' наук. ' + city + ', ' + year + '. ' + pages + ' c.';
+	document.getElementById('txt_auto').innerHTML = bibl;
+}
+
+function get_law() {
+	var book = document.getElementById('law_book').value;
+	var sved = document.getElementById('law_sved').value;
+	if (sved.search(/./i) != -1) {
+		sved = ' : ' + sved;
+	}
+	var city = document.getElementById('law_city').value;
+	if ((city == 'Москва') || (city == 'М')) {
+		city = 'М.';
+	}
+	if ((city == 'Санкт-Петербург') || (city == 'СПб')) {
+		city = 'СПб.';
+	}	
+	var org = document.getElementById('law_org').value;
+	var year = document.getElementById('law_year').value;
+	var pages = document.getElementById('law_pages').value;
+	var bibl = book + sved + '. &ndash; ' + city + ' : ' + org + ', ' + year + '. &ndash; ' + pages + ' с.';
+	document.getElementById('txt_law').innerHTML = bibl;
+}
+
+function get_tech() {
+	var book = document.getElementById('tech_book').value;
+	var sved = document.getElementById('tech_sved').value;
+	if (sved.search(/./i) != -1) {
+		sved = ' : ' + sved;
+	}
+	var city = document.getElementById('tech_city').value;
+	if ((city == 'Москва') || (city == 'М')) {
+		city = 'М.';
+	}
+	if ((city == 'Санкт-Петербург') || (city == 'СПб')) {
+		city = 'СПб.';
+	}	
+	var org = document.getElementById('tech_org').value;
+	var year = document.getElementById('tech_year').value;
+	var pages = document.getElementById('tech_pages').value;
+	var bibl = book + sved + '. &ndash; ' + city + ' : ' + org + ', ' + year + '. &ndash; ' + pages + ' с.';
+	document.getElementById('txt_tech').innerHTML = bibl;
+}
+
+function get_web() {
+	var header1 = document.getElementById('web_header1').value;
+	var site = document.getElementById('web_site').value;
+	if (site.slice(-1) != '.') {
+		site = site + '.';
+	}	
+	var url = document.getElementById('web_url').value;
+	var date = new Date();
+	var day = date.getUTCDate().toString();
+	var month = (date.getUTCMonth()+1).toString();
+	if (month.length == 1) {
+		month = '0'+month;
+	}
+	var year = date.getUTCFullYear().toString();
+	//var accessDate = '(дата обращения: ' + '.' + month + '.' year + ')';
+	var bibl = header1 + ' // ' + site + ' URL: ' + url + ' (дата обращения: ' + day + '.' + month + '.' + year + ').';
+	document.getElementById('txt_web').innerHTML = bibl;
+}
+
+</script>   
+
+</div>
+<body>
+        	<div class="container">
+                <h1 style="padding-top: 20px;">Оформление библиографических ссылок</h1>
+				<h9>(в соответсвии с ГОСТ Р 7.0.5-2008 "Библиографическая ссылка. Общие требования и правила составления")</h9>
+				<p></p>
+                <div class="article text">
+				<h4>Выберите тип источника:</h4>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('book'); return false;">Книга</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('artj'); return false;">Статья из журнала</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('artb'); return false;">Статья из сборника</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('diss'); return false;">Диссертация</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('auto'); return false;">Автореферат</a><br> 
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('law'); return false;">Нормативно-правовые документы</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('tech'); return false;">Нормативно-технические документы</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('web'); return false;">Электронные ресурсы</a><br>
+				</p>
+
+				<div class="bibl" id="book" style="display: none;">
+					<h2>Книга</h2>
+					<table border="0" width="100%">
+					<form name="book">
+						<tr></tr>
+						<tr>
+							<td><b>Автор</b></td>
+							<td>
+								Имя: <input type="text" id="book_authorname" value="" size="5" placeholder="М" onkeyup="get_book(); return(false);"> Отчество:<input type="text" id="book_authorsname" value="" size="5" placeholder="С" onkeyup="get_book(); return(false);"> Фамилия:<input type="text" id="book_author" value="" size="30" placeholder="Сычев" onkeyup="get_book(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><details><summary>Добавить еще авторов (через запятую)</summary>
+							<p><input type="text" id="book_authors" value="" size="80" placeholder="А.Н.Соколов, К.С.Сердобинцев" onkeyup="get_book(); return(false);"></p></details></td>
+						</tr>
+						<tr>
+							<td><b>Заглавие книги</b></td>
+							<td>
+								<input type="text" id="book_book" value="" size="80" placeholder="История Астраханского казачьего войска" onkeyup="get_book(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Сведения, относящиеся к заглавию</b></td>
+							<td>
+								<input type="text" id="book_sved" value="" size="80" placeholder="учебное пособие" onkeyup="get_book(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Город издания</b></td>
+							<td>
+								<input type="text" id="book_city" value="" size="30" placeholder="Астрахань" onkeyup="get_book(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Издательство</b></td>
+							<td>
+								<input type="text" id="book_org" value="" size="30" placeholder="Государственный университет управления" onkeyup="get_book(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год издания</b></td>
+							<td>
+								<input type="text" id="book_year" value="" size="10" placeholder="2009" onkeyup="get_book(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Общее число страниц в книге</b></td>
+							<td>
+								<input type="text" id="book_pages" value="" size="10" placeholder="231" onkeyup="get_book(); return(false);"><br>
+							</td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>
+						<br />
+						<input type="reset" value="Очистить формы" />
+						<input type="button" value="Обновить результат" onClick="get_book()" />
+							</td>
+						</tr>
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_book"></div>
+				</div><!-- end -->
+
+				
+				<div class="bibl" id="artj" style="display: none;">
+					<h2>Статья из журнала</h2>
+					<table border="0" width="100%">
+					<form name="artj" method="get">
+						<tr></tr>
+						<tr>
+							<td><b>Автор</b></td>
+							<td>
+								Имя: <input type="text" id="artj_authorname" value="" size="5" placeholder="Е" onkeyup="get_artj(); return(false);"> Отчество:<input type="text" id="artj_authorsname" value="" size="5" placeholder="Н" onkeyup="get_artj(); return(false);"> Фамилия:<input type="text" id="artj_author" value="" size="30" placeholder="Розенберг" onkeyup="get_artj(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><details><summary>Добавить еще авторов (через запятую)</summary>
+							<p><input type="text" id="artj_authors" value="" size="80" placeholder="В.И. Талалаев" onkeyup="get_artb(); return(false);"></p></details></td>
+						</tr>
+						<tr>
+							<td><b>Заглавие статьи</b></td>
+							<td>
+								<input type="text" id="artj_name" value="" size="80" placeholder="Многоуровневая система управления и обеспечения безопасности движения поездов" onkeyup="get_artb(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название источника</b></td>
+							<td>
+								<input type="text" id="artj_bname" value="" size="30" placeholder="Автоматика, связь, информатика" onkeyup="get_artj(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Номер выпуска</b></td>
+							<td>
+								<input type="text" id="artj_num" value="" size="10" placeholder="5" onkeyup="get_artj(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год издания</b></td>
+							<td>
+								<input type="text" id="artj_year" value="" size="10" placeholder="2006" onkeyup="artj_book(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Страницы статьи</b></td>
+							<td>
+								<input type="text" id="artj_pages" value="" size="10" placeholder="10-12" onkeyup="get_artj(); return(false); "><br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+						<br />
+						<input type="reset" value="Очистить формы" />
+						<input type="button" value="Обновить результат" onClick="get_artj()" />
+							</td>
+						</tr>
+					</form>
+					</table>
+
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_artj"></div>
+				</div> <!--end-->
+
+				<div class="bibl" id="artb" style="display: none;">
+					<h2>Статья из сборника</h2>
+					<table border="0" width="100%">
+					<form name="artb">
+						<tr></tr>
+						<tr>
+							<td><b>Автор</b></td>
+							<td>
+								Имя: <input type="text" id="artb_authorname" value="" size="5" placeholder="И" onkeyup="get_artb(); return(false);"> Отчество:<input type="text" id="artb_authorsname" value="" size="5" placeholder="И" onkeyup="get_artb(); return(false);"> Фамилия:<input type="text" id="artb_author" value="" size="30" placeholder="Иванов" onkeyup="get_artb(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><details><summary>Добавить еще авторов (через запятую)</summary>
+							<p><input type="text" id="artb_authors" value="" size="80" placeholder="И.И. Петров, А.А. Петров" onkeyup="get_artb(); return(false);"></p></details></td>
+						</tr>
+						<tr>
+							<td><b>Заглавие статьи</b></td>
+							<td>
+								<input type="text" id="artb_name" value="" size="80" placeholder="Происхождение и история фамилии Иванов" onkeyup="get_artb(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название источника</b></td>
+							<td>
+								<input type="text" id="artb_bname" value="" size="30" placeholder="Мир и наука" onkeyup="get_artb(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Сведения, относящиеся к источнику</b></td>
+							<td>
+								<input type="text" id="artb_sved" value="" size="80" placeholder="Материалы научно-технической конференции" onkeyup="get_artb(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Город издания</b></td>
+							<td>
+								<input type="text" id="artb_city" value="" size="30" placeholder="СПб" onkeyup="get_artb(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год издания</b></td>
+							<td>
+								<input type="text" id="artb_year" value="" size="10" placeholder="2006" onkeyup="get_artb(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Страницы статьи</b></td>
+							<td>
+								<input type="text" id="artb_pages" value="" size="10" placeholder="10-12" onkeyup="get_artb(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+						<br />
+						<input type="reset" value="Очистить формы" />
+						<input type="button" value="Обновить результат" onClick="get_artb()" />
+							</td>
+						</tr>
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_artb"></div>
+				</div> <!--end-->
+				
+				<div class="bibl" id="diss" style="display: none;">
+					<h2>Диссертация</h2>
+					<table border="0" width="100%">
+					<form name="diss">
+						<tr></tr>
+						<tr>
+							<td><b>Автор</b></td>
+							<td>
+								Имя: <input type="text" id="diss_authorname" value="" size="15" placeholder="Ирина" onkeyup="get_diss(); return(false);"> Отчество:<input type="text" id="diss_authorsname" value="" size="15" placeholder="Владимировна" onkeyup="get_diss(); return(false);"> Фамилия:<input type="text" id="diss_author" value="" size="15" placeholder="Лагкуева" onkeyup="get_diss(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Заглавие</b></td>
+							<td>
+								<input type="text" id="diss_name" value="" size="80" placeholder="Особенности регулирования труда творческих работников театров" onkeyup="get_diss(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Сведения, относящиеся к заглавию</b></td>
+							<td>
+								<input type="radio" name="nameRadio" value="канд. " checked="checked"/><span>Кандидат наук</span>
+								<input type="radio" name="nameRadio" value="д-ра "/><span>Доктор наук</span>
+								<output type="text" id="diss_sved" onkeyup="get_diss(); return(false);">канд.</output>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Научная отрасль</b></td>
+							<td>
+								<input type="text" id="diss_since" value="" size="30" placeholder="юрид" onkeyup="get_diss(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+						<tr>
+							<td><b>Шифр</b></td>
+							<td>
+								<input type="text" id="diss_shifr" value="" size="30" placeholder="12.00.05" onkeyup="get_diss(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Место написания</b></td>
+							<td>
+								<input type="text" id="diss_city" value="" size="30" placeholder="Москва" onkeyup="get_diss(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год защиты</b></td>
+							<td>
+								<input type="text" id="diss_year" value="" size="10" placeholder="2009" onkeyup="get_diss(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Общее число страниц</b></td>
+							<td>
+								<input type="text" id="diss_pages" value="" size="10" placeholder="168" onkeyup="get_diss(); return(false);"><br>
+							</td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>
+						<br />
+						<input type="reset" value="Очистить формы" />
+						<input type="button" value="Обновить результат" onClick="get_diss()" />
+							</td>
+						</tr>
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_diss"></div>
+				</div> <!--end-->				
+				
+				<div class="bibl" id="auto" style="display: none;">
+					<h2>Автореферат</h2>
+					<table border="0" width="100%">
+					<form name="auto">
+						<tr></tr>
+						<tr>
+							<td><b>Автор</b></td>
+							<td>
+								Имя: <input type="text" id="auto_authorname" value="" size="15" placeholder="Андрей" onkeyup="get_auto(); return(false);"> Отчество:<input type="text" id="auto_authorsname" value="" size="15" placeholder="Владимирович" onkeyup="get_auto(); return(false);"> Фамилия:<input type="text" id="auto_author" value="" size="15" placeholder="Покровский" onkeyup="get_auto(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Заглавие</b></td>
+							<td>
+								<input type="text" id="auto_name" value="" size="80" placeholder="Устранимые особенности решений эллиптических уравнений" onkeyup="get_auto(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Сведения, относящиеся к заглавию</b></td>
+							<td>
+								<input type="radio" name="nameaRadio" value="канд. " checked="checked"/><span>Кандидат наук</span>
+								<input type="radio" name="nameaRadio" value="д-ра "/><span>Доктор наук</span>
+								<!--output type="text" id="auto_sved" onkeyup="get_auto(); return(false);">канд.</output>-->
+							</td>
+						</tr>
+						<tr>
+							<td><b>Научная отрасль</b></td>
+							<td>
+								<input type="text" id="auto_since" value="" size="30" placeholder="физ.-мат" onkeyup="get_auto(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+						<tr>
+							<td><b>Шифр</b></td>
+							<td>
+								<input type="text" id="auto_shifr" value="" size="01.01.01" placeholder="168" onkeyup="get_auto(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Место написания</b></td>
+							<td>
+								<input type="text" id="auto_city" value="" size="30" placeholder="Москва" onkeyup="get_auto(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год защиты</b></td>
+							<td>
+								<input type="text" id="auto_year" value="" size="10" placeholder="2008" onkeyup="get_auto(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Общее число страниц</b></td>
+							<td>
+								<input type="text" id="auto_pages" value="" size="10" placeholder="178" onkeyup="get_auto(); return(false);"><br>
+							</td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>
+						<br />
+						<input type="reset" value="Очистить формы" />
+						<input type="button" value="Обновить результат" onClick="get_auto()" />
+							</td>
+						</tr>
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_auto"></div>
+				</div> <!--end-->
+
+				<div class="bibl" id="law" style="display: none;">
+					<h2>Нормативно-правовые документы</h2>
+					<table border="0" width="100%">
+					<form name="law">
+						<tr></tr>
+						<tr>
+							<td><b>Заглавие официального документа</b></td>
+							<td>
+								<input type="text" id="law_book" value="" size="80" placeholder="О правительственной комиссии по проведению административной реформы" onkeyup="get_law(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Сведения, относящиеся к заглавию</b></td>
+							<td>
+								<input type="text" id="law_sved" value="" size="80" placeholder="постановление Правительства РФ от 31 июля 2003 г. № 451" onkeyup="get_law(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Город издания</b></td>
+							<td>
+								<input type="text" id="law_city" value="" size="30" placeholder="Москва" onkeyup="get_law(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название издания</b></td>
+							<td>
+								<input type="text" id="law_org" value="" size="80" placeholder="Собрание законодательства" onkeyup="get_law(); return(false);"><br>
+							</td> 
+						</tr>
+						<tr>
+							<td><b>Год издания</b></td>
+							<td>
+								<input type="text" id="law_year" value="" size="10" placeholder="2003" onkeyup="get_law(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Общее число страниц</b></td>
+							<td>
+								<input type="text" id="law_pages" value="" size="10" placeholder="10" onkeyup="get_law(); return(false);"><br>
+							</td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>
+						<br />
+						<input type="reset" value="Очистить формы" />
+						<input type="button" value="Обновить результат" onClick="get_law()" />
+							</td>
+						</tr>
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_law"></div>
+				</div><!-- end -->
+				
+				<div class="bibl" id="tech" style="display: none;">
+					<h2>Нормативно-технические документы</h2>
+					<table border="0" width="100%">
+					<form name="tech">
+						<tr></tr>
+						<tr>
+							<td><b>Заглавие официального документа</b></td>
+							<td>
+								<input type="text" id="tech_book" value="" size="80" placeholder="ГОСТ Р 7.0.53-2007. Система стандартов по информации, библиотечному делу" onkeyup="get_tech(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Сведения, относящиеся к заглавию</b></td>
+							<td>
+								<input type="text" id="tech_sved" value="" size="80" placeholder="(если имеются) нормативно-технический материал" onkeyup="get_tech(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Город издания</b></td>
+							<td>
+								<input type="text" id="tech_city" value="" size="30" placeholder="Москва" onkeyup="get_tech(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название издания</b></td>
+							<td>
+								<input type="text" id="tech_org" value="" size="80" placeholder="Стандартинформ" onkeyup="get_tech(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год издания</b></td>
+							<td>
+								<input type="text" id="tech_year" value="" size="10" placeholder="2007" onkeyup="get_tech(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Общее число страниц</b></td>
+							<td>
+								<input type="text" id="tech_pages" value="" size="10" placeholder="5" onkeyup="get_tech(); return(false);"><br>
+							</td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>
+						<br />
+						<input type="reset" value="Очистить формы" />
+						<input type="button" value="Обновить результат" onClick="get_tech()" />
+							</td>
+						</tr>						
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_tech"></div>
+				</div><!-- end -->
+				
+				<div class="bibl" id="web" style="display: none;">
+					<h2>Интернет-ресурс</h2>
+					<table border="0" width="100%">
+					<form name="web">
+						<tr>
+							<td><b>Заголовок статьи (веб-страницы)</b></td>
+							<td>
+								<input type="text" id="web_header1" value="" size="80" onkeyup="get_web(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название сайта</b></td>
+							<td>
+								<input type="text" id="web_site" value="" size="80" onkeyup="get_web(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Ссылка на документ</b></td>
+							<td>
+								<input type="text" id="web_url" value="" size="30" onkeyup="get_web(); return(false);"><br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+						<br />
+						<input type="reset" value="Очистить формы" />
+						<input type="button" value="Обновить результат" onClick="get_web()" />
+							</td>
+						</tr>
+					</form>
+					</table>					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_web"></div>
+				</div><!-- end -->
+				
+            	</div><!--article-end-->
+				<br />
+			</div><!--inner-page-end-->
+				<br />
+        </div><!--center-end-->
+    </div>
+    <!--MAIN-END-->
+	
+
+
+</body>
+</html>

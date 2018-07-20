@@ -1,0 +1,221 @@
+ <h4>(в соответсвии с требованиями ГОСТ Р 7.0.11-2011 "Диссертация и автореферат диссертации. Структура и правила оформления")</h4>
+				<h3>Выберите тип источника:</h3>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('book'); return false;">Книга</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('artj'); return false;">Статья из журнала</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('artb'); return false;">Статья из сборника</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('diss'); return false;">Диссертация</a><br>
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('auto'); return false;">Автореферат</a><br> 
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('law'); return false;">Закон, нормативный акт</a><br> 
+					<a href="#" style="text-decoration:none; border-bottom: 1px dashed #999;" onclick="showStuff('web'); return false;">Интернет-ресурс</a><br>
+				</p>
+
+				<div class="bibl" id="book" style="display: none;">
+					<h3>Книга</h3>
+					<table>
+					<form name="book">
+						<tbody>
+						<tr>
+							<td><b>ФИО автора</b></td>
+							<td>
+								<input type="text" id="book_authors" value="" size="30" onkeyup="get_book(); return(false);"> <br>
+								<i>(пример: Иванов И.И., Петров П.П.)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Заглавие</b></td>
+							<td>
+								<input type="text" id="book_book" value="" size="80" onkeyup="get_book(); return(false);"><br>
+								<i>(пример: Дискретная математика</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Сведения, относящиеся к заглавию</b></td>
+							<td>
+								<input type="text" id="book_sved" value="" size="80" onkeyup="get_book(); return(false);"><br>
+								<i>(пример: учебное пособие</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Номер издания (при наличии)</b></td>
+							<td>
+								<input type="text" id="book_num" value="" size="30" onkeyup="get_book(); return(false);"><br>
+								<i>(пример: 4-е изд.)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Город издания</b></td>
+							<td>
+								<input type="text" id="book_city" value="" size="30" onkeyup="get_book(); return(false);"><br>
+								<i>(пример: Самара)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Издательство</b></td>
+							<td>
+								<input type="text" id="book_org" value="" size="30" onkeyup="get_book(); return(false);"><br>
+								<i>(пример: Физматлит)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год издания</b></td>
+							<td>
+								<input type="text" id="book_year" value="" size="10" onkeyup="get_book(); return(false);"><br>
+								<i>(пример: 1958)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Общее число страниц в книге</b></td>
+							<td>
+								<input type="text" id="book_pages" value="" size="10" onkeyup="get_book(); return(false);"><br>
+								<i>(пример: 258)</i>
+							</td>
+						</tr>
+						</tbody>			
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_book"></div>
+				</div><!-- end -->
+
+				
+				<div class="bibl" id="artj" style="display: none;">
+					<h2>Статья из журнала</h2>
+					<table border="0" width="100%">
+					<form name="artj">
+						<tr>
+							<td><b>Фамилии и инициалы авторов (через запятую)</b></td>
+							<td>
+								<input type="text" id="artj_authors" value="" size="80" onkeyup="get_artj(); return(false);"><br>
+								<i>(пример: Иванов И.И., Петров П.П.)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Заголовок статьи</b></td>
+							<td>
+								<input type="text" id="artj_header1" value="" size="80" onkeyup="get_artj(); return(false);"><br>
+								<i>(пример: К вопросу производства чугунных болванок)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название журнала</b></td>
+							<td>
+								<input type="text" id="artj_journal" value="" size="50" onkeyup="get_artj(); return(false);"><br>
+								<i>(пример: Вопросы философии</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год</b></td>
+							<td>
+								<input type="text" id="artj_year" value="" size="10" onkeyup="get_artj(); return(false);"><br>
+								<i>(пример: 1987)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Номер журнала</b></td>
+							<td>
+								<input type="text" id="artj_issue" value="" size="10" onkeyup="get_artj(); return(false);"><br>
+								<i>(пример: 6)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Страницы</b></td>
+							<td>
+								<input type="text" id="artj_pages" value="" size="10" onkeyup="get_artj(); return(false);"><br>
+								<i>(пример: 139-146)</i>
+							</td>
+						</tr>			
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_artj"></div>
+				</div> <!--end-->
+
+				
+				<div class="bibl" id="artb" style="display: none;">
+					<h2>Статья из сборника</h2>
+					<table border="0" width="100%">
+					<form name="artb">
+						<tr>
+							<td><b>Фамилии и инициалы авторов (через запятую)</b></td>
+							<td>
+								<input type="text" id="artb_authors" value="" size="80" onkeyup="get_artb(); return(false);"><br>
+								<i>(пример: Иванов И.И., Петров П.П.)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Заголовок статьи из сборника</b></td>
+							<td>
+								<input type="text" id="artb_header1" value="" size="80" onkeyup="get_artb(); return(false);"><br>
+								<i>(пример: К вопросу производства чугунных болванок)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название сборника</b></td>
+							<td>
+								<input type="text" id="artb_book" value="" size="80" onkeyup="get_artb(); return(false);"><br>
+								<i>(пример: Материалы XX Международной конференции &laquo;Философия и мы&raquo;</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Город, в котором издан сборник</b></td>
+							<td>
+								<input type="text" id="artb_city" value="" size="30" onkeyup="get_artb(); return(false);"><br>
+								<i>(пример: Челябинск)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Издательство</b></td>
+							<td>
+								<input type="text" id="artb_org" value="" size="30" onkeyup="get_artb(); return(false);"><br>
+								<i>(пример: Научная книга)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Год издания</b></td>
+							<td>
+								<input type="text" id="artb_year" value="" size="10" onkeyup="get_artb(); return(false);"><br>
+								<i>(пример: 1996)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Страницы</b></td>
+							<td>
+								<input type="text" id="artb_pages" value="" size="10" onkeyup="get_artb(); return(false);"><br>
+								<i>(пример: 141-150)</i>
+							</td>
+						</tr>			
+					</form>
+					</table>
+					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_artb"></div>
+				</div><!-- end -->
+
+				<div class="bibl" id="web" style="display: none;">
+					<h2>Интернет-ресурс</h2>
+					<table border="0" width="100%">
+					<form name="web">
+						<tr>
+							<td><b>Заголовок статьи (веб-страницы)</b></td>
+							<td>
+								<input type="text" id="web_header1" value="" size="80" onkeyup="get_web(); return(false);"><br>
+								<i>(пример: Импортозамещение в банках: кому теперь дают кредиты)</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Название сайта</b></td>
+							<td>
+								<input type="text" id="web_site" value="" size="80" onkeyup="get_web(); return(false);"><br>
+								<i>(пример: РосБизнесКонсалтинг</i>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Ссылка на документ</b></td>
+							<td>
+								<input type="text" id="web_url" value="" size="30" onkeyup="get_web(); return(false);"><br>
+								<i>(пример: http://www.rbc.ru/finances/19/02/2016/56c7064d9a79470b848a7d33)</i>
+							</td>
+						</tr>
+					</form>
+					</table>					
+					<div style="background-color: lightblue; font-style: italic; font-weight: bold; font-size: 16px; margin-top: 16px; padding: 10px 10px 10px 10px;" id="txt_web"></div>
+				</div><!-- end -->
